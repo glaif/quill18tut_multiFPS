@@ -1,12 +1,18 @@
 fileFormatVersion: 2
 guid: c9aecbced71bf9647a5598c07af40aaf
+timeCreated: 1501699694
+licenseType: Free
 SubstanceImporter:
   serializedVersion: 5
   materialInstances:
-  - serializedVersion: 10
+  - serializedVersion: 16
     name: Stones_01
     prototypeName: Stones_01
-    shaderName: Bumped Specular
+    shaderName: 
+    shader: {fileID: 4, guid: 0000000000000000f000000000000000, type: 0}
+    shaderKeywords: _EMISSION _NORMALMAP
+    renderQueue: -1
+    lightmapFlags: 5
     inputs:
     - name: $normalformat
       value:
@@ -31,42 +37,42 @@ SubstanceImporter:
         texture: {instanceID: 0}
     - name: Detail
       value:
-        scalar[0]: .5
+        scalar[0]: 0.5
         scalar[1]: 0
         scalar[2]: 0
         scalar[3]: 0
         texture: {instanceID: 0}
     - name: Rock_Amount
       value:
-        scalar[0]: .5
+        scalar[0]: 0.5
         scalar[1]: 0
         scalar[2]: 0
         scalar[3]: 0
         texture: {instanceID: 0}
     - name: Rock_Color
       value:
-        scalar[0]: .400000006
-        scalar[1]: .370000005
-        scalar[2]: .349999994
+        scalar[0]: 0.4
+        scalar[1]: 0.37
+        scalar[2]: 0.35
         scalar[3]: 0
         texture: {instanceID: 0}
     - name: Rock_Edges
       value:
-        scalar[0]: .5
+        scalar[0]: 0.5
         scalar[1]: 0
         scalar[2]: 0
         scalar[3]: 0
         texture: {instanceID: 0}
     - name: Rock_Size
       value:
-        scalar[0]: .5
+        scalar[0]: 0.5
         scalar[1]: 0
         scalar[2]: 0
         scalar[3]: 0
         texture: {instanceID: 0}
     - name: Shape_Shift
       value:
-        scalar[0]: .5
+        scalar[0]: 0.5
         scalar[1]: 0
         scalar[2]: 0
         scalar[3]: 0
@@ -87,7 +93,7 @@ SubstanceImporter:
         texture: {instanceID: 0}
     - name: Normal
       value:
-        scalar[0]: .5
+        scalar[0]: 0.5
         scalar[1]: 0
         scalar[2]: 0
         scalar[3]: 0
@@ -101,7 +107,7 @@ SubstanceImporter:
         texture: {instanceID: 0}
     - name: Angle
       value:
-        scalar[0]: .125
+        scalar[0]: 0.125
         scalar[1]: 0
         scalar[2]: 0
         scalar[3]: 0
@@ -115,14 +121,14 @@ SubstanceImporter:
         texture: {instanceID: 0}
     - name: Saturation
       value:
-        scalar[0]: .5
+        scalar[0]: 0.5
         scalar[1]: 0
         scalar[2]: 0
         scalar[3]: 0
         texture: {instanceID: 0}
     - name: Luminosity
       value:
-        scalar[0]: .5
+        scalar[0]: 0.5
         scalar[1]: 0
         scalar[2]: 0
         scalar[3]: 0
@@ -138,39 +144,25 @@ SubstanceImporter:
       serializedVersion: 5
       offset: {x: 0, y: 0}
       scale: {x: 25, y: 25}
+      generateMipmaps: 1
       generateAllOutputs: 1
       animationUpdateRate: 42
     materialProperties:
-      serializedVersion: 2
+      serializedVersion: 3
       texEnvs:
-        data:
-          first:
-            name: _MainTex
-          second:
-            texture: {instanceID: 0}
-            scale: {x: 25, y: 25}
-            offset: {x: 0, y: 0}
-        data:
-          first:
-            name: _BumpMap
-          second:
-            texture: {instanceID: 0}
-            scale: {x: 25, y: 2}
-            offset: {x: 0, y: 0}
+      - _BumpMap:
+          texture: {instanceID: 0}
+          scale: {x: 25, y: 25}
+          offset: {x: 0, y: 0}
+      - _MainTex:
+          texture: {instanceID: 0}
+          scale: {x: 25, y: 25}
+          offset: {x: 0, y: 0}
       floats:
-        data:
-          first:
-            name: _Shininess
-          second: .078125
+      - _Shininess: 0.078125
       colors:
-        data:
-          first:
-            name: _Color
-          second: {r: 1, g: 1, b: 1, a: 1}
-        data:
-          first:
-            name: _SpecColor
-          second: {r: .5, g: .5, b: .5, a: 1}
+      - _Color: {r: 1, g: 1, b: 1, a: 1}
+      - _SpecColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     textureParameters:
     - name: Stones_01_Diffuse
       alphaSource: 5
@@ -202,6 +194,13 @@ SubstanceImporter:
       filterMode: 1
       aniso: 1
       wrapMode: 0
+    textureAssignments:
+    - shaderProp: _MainTex
+      material: {instanceID: 0}
+      baseUID: 1501065660
+    - shaderProp: _BumpMap
+      material: {instanceID: 0}
+      baseUID: 1501065635
     buildTargetSettings:
     - serializedVersion: 2
       buildTarget: 
@@ -209,10 +208,14 @@ SubstanceImporter:
       textureHeight: 512
       textureFormat: 0
       loadingBehavior: 1
-  - serializedVersion: 10
+  - serializedVersion: 16
     name: Stones_01_1
     prototypeName: Stones_01
-    shaderName: Bumped Specular
+    shaderName: 
+    shader: {fileID: 4, guid: 0000000000000000f000000000000000, type: 0}
+    shaderKeywords: _EMISSION _NORMALMAP
+    renderQueue: -1
+    lightmapFlags: 5
     inputs:
     - name: $normalformat
       value:
@@ -237,49 +240,49 @@ SubstanceImporter:
         texture: {instanceID: 0}
     - name: Detail
       value:
-        scalar[0]: .232999995
+        scalar[0]: 0.233
         scalar[1]: 0
         scalar[2]: 0
         scalar[3]: 0
         texture: {instanceID: 0}
     - name: Rock_Amount
       value:
-        scalar[0]: .859000027
+        scalar[0]: 0.859
         scalar[1]: 0
         scalar[2]: 0
         scalar[3]: 0
         texture: {instanceID: 0}
     - name: Rock_Color
       value:
-        scalar[0]: .0220588446
-        scalar[1]: .0220588446
-        scalar[2]: .0220588446
+        scalar[0]: 0.022058845
+        scalar[1]: 0.022058845
+        scalar[2]: 0.022058845
         scalar[3]: 0
         texture: {instanceID: 0}
     - name: Rock_Edges
       value:
-        scalar[0]: .49000001
+        scalar[0]: 0.49
         scalar[1]: 0
         scalar[2]: 0
         scalar[3]: 0
         texture: {instanceID: 0}
     - name: Rock_Size
       value:
-        scalar[0]: .261999995
+        scalar[0]: 0.262
         scalar[1]: 0
         scalar[2]: 0
         scalar[3]: 0
         texture: {instanceID: 0}
     - name: Shape_Shift
       value:
-        scalar[0]: .56400001
+        scalar[0]: 0.564
         scalar[1]: 0
         scalar[2]: 0
         scalar[3]: 0
         texture: {instanceID: 0}
     - name: Depth
       value:
-        scalar[0]: .460000008
+        scalar[0]: 0.46
         scalar[1]: 0
         scalar[2]: 0
         scalar[3]: 0
@@ -293,21 +296,21 @@ SubstanceImporter:
         texture: {instanceID: 0}
     - name: Normal
       value:
-        scalar[0]: .268000007
+        scalar[0]: 0.268
         scalar[1]: 0
         scalar[2]: 0
         scalar[3]: 0
         texture: {instanceID: 0}
     - name: Emboss
       value:
-        scalar[0]: -4.80000019
+        scalar[0]: -4.8
         scalar[1]: 0
         scalar[2]: 0
         scalar[3]: 0
         texture: {instanceID: 0}
     - name: Angle
       value:
-        scalar[0]: .125
+        scalar[0]: 0.125
         scalar[1]: 0
         scalar[2]: 0
         scalar[3]: 0
@@ -321,14 +324,14 @@ SubstanceImporter:
         texture: {instanceID: 0}
     - name: Saturation
       value:
-        scalar[0]: .5
+        scalar[0]: 0.5
         scalar[1]: 0
         scalar[2]: 0
         scalar[3]: 0
         texture: {instanceID: 0}
     - name: Luminosity
       value:
-        scalar[0]: .5
+        scalar[0]: 0.5
         scalar[1]: 0
         scalar[2]: 0
         scalar[3]: 0
@@ -344,39 +347,25 @@ SubstanceImporter:
       serializedVersion: 5
       offset: {x: 0, y: 0}
       scale: {x: 25, y: 25}
+      generateMipmaps: 1
       generateAllOutputs: 0
       animationUpdateRate: 0
     materialProperties:
-      serializedVersion: 2
+      serializedVersion: 3
       texEnvs:
-        data:
-          first:
-            name: _MainTex
-          second:
-            texture: {instanceID: 0}
-            scale: {x: 25, y: 25}
-            offset: {x: 0, y: 0}
-        data:
-          first:
-            name: _BumpMap
-          second:
-            texture: {instanceID: 0}
-            scale: {x: 25, y: 2}
-            offset: {x: 0, y: 0}
+      - _BumpMap:
+          texture: {instanceID: 0}
+          scale: {x: 25, y: 25}
+          offset: {x: 0, y: 0}
+      - _MainTex:
+          texture: {instanceID: 0}
+          scale: {x: 25, y: 25}
+          offset: {x: 0, y: 0}
       floats:
-        data:
-          first:
-            name: _Shininess
-          second: .078125
+      - _Shininess: 0.078125
       colors:
-        data:
-          first:
-            name: _Color
-          second: {r: 1, g: 1, b: 1, a: 1}
-        data:
-          first:
-            name: _SpecColor
-          second: {r: .5, g: .5, b: .5, a: 1}
+      - _Color: {r: 1, g: 1, b: 1, a: 1}
+      - _SpecColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     textureParameters:
     - name: Stones_01_1_Diffuse
       alphaSource: 5
@@ -393,6 +382,13 @@ SubstanceImporter:
       filterMode: 1
       aniso: 1
       wrapMode: 0
+    textureAssignments:
+    - shaderProp: _MainTex
+      material: {instanceID: 0}
+      baseUID: 1501065660
+    - shaderProp: _BumpMap
+      material: {instanceID: 0}
+      baseUID: 1501065635
     buildTargetSettings:
     - serializedVersion: 2
       buildTarget: 
@@ -402,3 +398,5 @@ SubstanceImporter:
       loadingBehavior: 1
   deletedPrototypes: []
   userData: 
+  assetBundleName: 
+  assetBundleVariant: 
