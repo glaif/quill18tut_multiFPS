@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class NetworkManager : MonoBehaviour {
 
-    public Camera standbyCamera;
+    bool PUN_OFFLINE = true;
+    public GameObject standbyCamera;
     SpawnSpot[] spawnSpots;
 
     // Use this for initialization
@@ -14,7 +15,11 @@ public class NetworkManager : MonoBehaviour {
 	}
 
     void Connect() {
-        //PhotonNetwork.offlineMode = true;
+        if (PUN_OFFLINE) {
+            PhotonNetwork.offlineMode = true;
+            PhotonNetwork.CreateRoom(null);
+            return;
+        }
         PhotonNetwork.ConnectUsingSettings("dev_001");
     }
 
@@ -22,16 +27,19 @@ public class NetworkManager : MonoBehaviour {
         GUILayout.Label(PhotonNetwork.connectionStateDetailed.ToString());
     }
 
+    // Bypassed if OFFLINE == true
     void OnJoinedLobby() {
         Debug.Log("OnJoinedLobby");
         PhotonNetwork.JoinRandomRoom();
     }
 
+    // Bypassed if OFFLINE == true
     void OnPhotonRandomJoinFailed() {
         Debug.Log("OnPhotonRandomJoinFailed");
         PhotonNetwork.CreateRoom(null);
     }
 
+    // Reached no matter what OFFLINE is (true | false)
     void OnJoinedRoom() {
         Debug.Log("OnJoinedRoom");
         SpawnMyPlayer();
@@ -44,7 +52,7 @@ public class NetworkManager : MonoBehaviour {
         }
         SpawnSpot mySpawnSpot = spawnSpots[Random.Range(0, spawnSpots.Length)];
         GameObject myPlayerGO = PhotonNetwork.Instantiate("PlayerController", mySpawnSpot.transform.position, mySpawnSpot.transform.rotation, 0);
-        standbyCamera.enabled = false;
+        standbyCamera.SetActive(false);
 
         // NOTE: Must enable camera *before* controller, otherwise controller will have 
         // a null reference to the camera and will not get a new one
