@@ -23,7 +23,7 @@ public class NetworkCharacter : Photon.MonoBehaviour {
 		
 	}
 
-    public void onPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info) {
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info) {
         if (stream.isWriting) {
             // This is our player. We need to send our actual position to the network.
 

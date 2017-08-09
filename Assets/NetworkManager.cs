@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class NetworkManager : MonoBehaviour {
 
-    bool PUN_OFFLINE = true;
+    bool PUN_OFFLINE = false;
     public GameObject standbyCamera;
     SpawnSpot[] spawnSpots;
 
