@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class NetworkManager : MonoBehaviour {
 
-    bool PUN_OFFLINE = false;
+    bool PUN_OFFLINE = true;
     public GameObject standbyCamera;
     SpawnSpot[] spawnSpots;
 
@@ -57,6 +57,6 @@ public class NetworkManager : MonoBehaviour {
         // NOTE: Must enable camera *before* controller, otherwise controller will have 
         // a null reference to the camera and will not get a new one
         myPlayerGO.transform.Find("FirstPersonCharacter").gameObject.SetActive(true);
-        ((MonoBehaviour)myPlayerGO.GetComponent("FirstPersonController")).enabled = true;
+        //((MonoBehaviour)myPlayerGO.GetComponent("FirstPersonController")).enabled = true;
     }
 }
