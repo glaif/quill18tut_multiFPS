@@ -493,6 +493,7 @@ GameObject:
   - component: {fileID: 143600231447559762}
   - component: {fileID: 114094742212071622}
   - component: {fileID: 114493766702906594}
+  - component: {fileID: 95034164892832412}
   m_Layer: 0
   m_Name: PlayerController
   m_TagString: Untagged
@@ -583,7 +584,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4085543233587700}
-  - component: {fileID: 95394025147073984}
   m_Layer: 0
   m_Name: Arissa
   m_TagString: Untagged
@@ -2523,15 +2523,15 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1289236770014852}
   m_Enabled: 1
---- !u!95 &95394025147073984
+--- !u!95 &95034164892832412
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1455162865533066}
+  m_GameObject: {fileID: 1349212350562414}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 5898ecf19895a594491bc12d352de924, type: 3}
+  m_Avatar: {fileID: 9000000, guid: 50f58138f89d76848b5571c1dca38d1c, type: 3}
   m_Controller: {fileID: 9100000, guid: 7405619d8067c3a4297b82d92b181005, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0

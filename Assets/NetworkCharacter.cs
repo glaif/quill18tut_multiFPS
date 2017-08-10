@@ -7,9 +7,14 @@ public class NetworkCharacter : Photon.MonoBehaviour {
     Vector3 realPosition = Vector3.zero;
     Quaternion realRotation = Quaternion.identity;
 
+    Animator anim;
+
 	// Use this for initialization
 	void Start () {
-		
+        anim = GetComponent<Animator>();
+        if (anim == null) {
+            Debug.LogError("Missing animator component");
+        }
 	}
 	
 	// Update is called once per frame
@@ -19,6 +24,7 @@ public class NetworkCharacter : Photon.MonoBehaviour {
         } else {
             transform.position = Vector3.Lerp(transform.position, realPosition, 0.1f);
             transform.rotation = Quaternion.Lerp(transform.rotation, realRotation, 0.1f);
+            // can lerp animation vars as well
         }
 		
 	}
@@ -29,12 +35,18 @@ public class NetworkCharacter : Photon.MonoBehaviour {
 
             stream.SendNext(transform.position);
             stream.SendNext(transform.rotation);
+            stream.SendNext(anim.GetFloat("Speed"));
+            stream.SendNext(anim.GetBool("Jumping"));
+            stream.SendNext(anim.GetBool("Dancing"));
         } else {
             // This is someone else's player. We need to receive their position (as of
             // a few milliseconds ago), and update our version of that player.
 
             realPosition = (Vector3)stream.ReceiveNext();
             realRotation = (Quaternion)stream.ReceiveNext();
+            anim.SetFloat("Speed", (float)stream.ReceiveNext());
+            anim.SetBool("Jumping", (bool)stream.ReceiveNext());
+            anim.SetBool("Dancing", (bool)stream.ReceiveNext());
         }
     }
 }
