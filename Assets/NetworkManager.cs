@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class NetworkManager : MonoBehaviour {
 
-    bool PUN_OFFLINE = false;
+    public bool offlineMode = false;
     public GameObject standbyCamera;
     SpawnSpot[] spawnSpots;
 
@@ -15,9 +15,9 @@ public class NetworkManager : MonoBehaviour {
 	}
 
     void Connect() {
-        if (PUN_OFFLINE) {
+        if (offlineMode) {
             PhotonNetwork.offlineMode = true;
-            PhotonNetwork.CreateRoom(null);
+            OnJoinedLobby();
             return;
         }
         PhotonNetwork.ConnectUsingSettings("dev_001");
@@ -60,5 +60,6 @@ public class NetworkManager : MonoBehaviour {
         //((MonoBehaviour)myPlayerGO.GetComponent("FirstPersonController")).enabled = true;
         ((MonoBehaviour)myPlayerGO.GetComponent("MouseLook")).enabled = true;
         ((MonoBehaviour)myPlayerGO.GetComponent("PlayerMovement")).enabled = true;
+        ((MonoBehaviour)myPlayerGO.GetComponent("PlayerShooting")).enabled = true;
     }
 }

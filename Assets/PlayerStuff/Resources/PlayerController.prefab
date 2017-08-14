@@ -494,6 +494,8 @@ GameObject:
   - component: {fileID: 114094742212071622}
   - component: {fileID: 114493766702906594}
   - component: {fileID: 95034164892832412}
+  - component: {fileID: 114427791415078114}
+  - component: {fileID: 114025126555420136}
   m_Layer: 0
   m_Name: PlayerController
   m_TagString: Untagged
@@ -2540,6 +2542,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114025126555420136
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1349212350562414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0c164c16a66311428242b4ea56b28de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitPoints: 100
 --- !u!114 &114094742212071622
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2551,6 +2565,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 754375d46a7af6d4295672749354d732, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114427791415078114
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1349212350562414}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bee7a25cb82abdd4dab8541b9e3cef5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireRate: 0.5
+  damage: 25
 --- !u!114 &114493766702906594
 MonoBehaviour:
   m_ObjectHideFlags: 1
