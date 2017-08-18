@@ -9,6 +9,8 @@ public class NetworkCharacter : Photon.MonoBehaviour {
 
     Animator anim;
 
+    bool gotFirstUpdate = false;
+
 	// Use this for initialization
 	void Start () {
         anim = GetComponent<Animator>();
@@ -42,6 +44,7 @@ public class NetworkCharacter : Photon.MonoBehaviour {
             // This is someone else's player. We need to receive their position (as of
             // a few milliseconds ago), and update our version of that player.
 
+            if (gotFirstUpdate == false) 
             realPosition = (Vector3)stream.ReceiveNext();
             realRotation = (Quaternion)stream.ReceiveNext();
             anim.SetFloat("Speed", (float)stream.ReceiveNext());
