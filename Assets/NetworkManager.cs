@@ -42,7 +42,7 @@ public class NetworkManager : MonoBehaviour {
     }
 
     public void AddChatMessage(string m) {
-        GetComponent<PhotonView>().RPC("AddChatMessage_RPC", PhotonTargets.All, m);
+        GetComponent<PhotonView>().RPC("AddChatMessage_RPC", PhotonTargets.AllBuffered, m);
     }
 
     [PunRPC]
@@ -84,6 +84,11 @@ public class NetworkManager : MonoBehaviour {
     }
 
     public void OnClickMultiPlayer() {
+        if (offlineMode == true) {
+            OnClickSinglePlayer();
+            return;
+        }
+        
         PhotonNetwork.player.NickName = userNameField.text;
         Debug.Log("Username == " + PhotonNetwork.player.NickName);
 
@@ -97,7 +102,7 @@ public class NetworkManager : MonoBehaviour {
     }
 
     void Connect() {
-        PhotonNetwork.ConnectUsingSettings("dev_001");
+        PhotonNetwork.ConnectUsingSettings("dev_002");
     }
 
     // Bypassed if OFFLINE == true

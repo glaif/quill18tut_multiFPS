@@ -7,9 +7,18 @@ public class PlayerShooting : MonoBehaviour {
     public float fireRate = 0.5f;
     float cooldown = 0f;
     public float damage = 25f;
+    FXManager fxManager;
 
-	// Update is called once per frame
-	void Update () {
+    private void Start() {
+        fxManager = GameObject.FindObjectOfType<FXManager>();
+
+        if (fxManager == null) {
+            Debug.LogError("Couldn't find an FXManage object");
+        }
+    }
+
+    // Update is called once per frame
+    void Update () {
         cooldown -= Time.deltaTime;
 
         if (Input.GetButton("Fire1")) {
@@ -30,10 +39,8 @@ public class PlayerShooting : MonoBehaviour {
         hitTransform = FindClosestHitObject(ray, out hitPoint);
 
         if (hitTransform != null) {
+            // We hit something
             Debug.Log("We hit: " + hitTransform.name);
-
-            // We could do a special effect at the hit location
-            // DoRicochetEffectAt(hitPoint);
 
             Health h = hitTransform.GetComponent<Health>();
 
@@ -51,7 +58,18 @@ public class PlayerShooting : MonoBehaviour {
                 if (pv == null)
                     Debug.LogError("Error: Null PhotonView object");
 
-                pv.RPC("TakeDamage", PhotonTargets.All, damage);
+                pv.RPC("TakeDamage", PhotonTargets.AllBuffered, damage);
+            }
+
+            // Do bullet hit FX
+            if (fxManager != null) {
+                fxManager.GetComponent<PhotonView>().RPC("SniperBulletFX", PhotonTargets.All, Camera.main.transform.position, hitPoint);
+            }
+        } else {
+            // We did not hit anything, still need bullet FX
+            if (fxManager != null) {
+                hitPoint = Camera.main.transform.position + (Camera.main.transform.forward * 100f);
+                fxManager.GetComponent<PhotonView>().RPC("SniperBulletFX", PhotonTargets.All, Camera.main.transform.position, hitPoint);
             }
         }
         cooldown = fireRate;

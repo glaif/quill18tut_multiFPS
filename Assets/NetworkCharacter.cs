@@ -44,12 +44,17 @@ public class NetworkCharacter : Photon.MonoBehaviour {
             // This is someone else's player. We need to receive their position (as of
             // a few milliseconds ago), and update our version of that player.
 
-            if (gotFirstUpdate == false) 
             realPosition = (Vector3)stream.ReceiveNext();
             realRotation = (Quaternion)stream.ReceiveNext();
             anim.SetFloat("Speed", (float)stream.ReceiveNext());
             anim.SetBool("Jumping", (bool)stream.ReceiveNext());
             anim.SetBool("Dancing", (bool)stream.ReceiveNext());
+
+            if (gotFirstUpdate == false) {
+                transform.position = realPosition;
+                transform.rotation = realRotation;
+                gotFirstUpdate = true;
+            }
         }
     }
 }
