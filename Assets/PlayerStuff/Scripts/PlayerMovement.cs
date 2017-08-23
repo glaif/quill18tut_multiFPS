@@ -44,6 +44,26 @@ public class PlayerMovement : MonoBehaviour {
         if (cc.isGrounded && Input.GetButtonDown("Jump")) {
                 verticalVelocity = jumpSpeed;
         }
+        AdjustAimAngle();
+    }
+
+    void AdjustAimAngle() {
+        Camera myCamera = this.GetComponentInChildren<Camera>();
+        if (myCamera == null) {
+            Debug.LogError("Null camera on player");
+            return;
+        }
+
+        float AimAngle = 0;
+
+        if (myCamera.transform.rotation.eulerAngles.x <= 90f) {
+            // Looking down
+            AimAngle = -myCamera.transform.rotation.eulerAngles.x;
+        } else {
+            AimAngle = 360 - myCamera.transform.rotation.eulerAngles.x;
+        }
+
+        anim.SetFloat("AimAngle", AimAngle);
     }
 
     // FixedUpdate is called once per physics loop
