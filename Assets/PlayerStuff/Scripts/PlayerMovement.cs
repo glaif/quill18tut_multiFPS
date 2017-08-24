@@ -62,8 +62,6 @@ public class PlayerMovement : MonoBehaviour {
         } else {
             AimAngle = 360 - myCamera.transform.rotation.eulerAngles.x;
         }
-        Debug.Log("AimAngle: " + AimAngle);
-
         anim.SetFloat("AimAngle", AimAngle);
     }
 
